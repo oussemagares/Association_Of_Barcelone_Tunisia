@@ -2,7 +2,7 @@
 
 namespace BarceloneBundle\Controller;
 
-use BiblioBundle\Entity\Events;
+use BarceloneBundle\Entity\Events;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -11,9 +11,9 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
-use BiblioBundle\Entity\User;
-use BiblioBundle\Entity\Accesoire;
-use BiblioBundle\Entity\Notification;
+use BarceloneBundle\Entity\User;
+use BarceloneBundle\Entity\Accesoire;
+use BarceloneBundle\Entity\Notification;
 
 class AdminController extends Controller
 {
