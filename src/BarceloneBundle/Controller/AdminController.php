@@ -1,6 +1,6 @@
 <?php
 
-namespace BiblioBundle\Controller;
+namespace BarceloneBundle\Controller;
 
 use BiblioBundle\Entity\Events;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
