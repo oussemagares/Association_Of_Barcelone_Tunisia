@@ -1,0 +1,58 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+ <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <h1 class="h3 mb-2 text-gray-800">Tables des utilisateurs </h1>
+
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Tables</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Nom</th>
+                      <th>Email</th>
+                      <th>Cin</th>
+                      <th>Mots de passe </th>
+                      <th scope="col">Actions</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+     {% for  users in user %}
+                              <tr>
+                                 
+                                <td>{{users.username}}</td>
+                                <td>{{users.email}}</td>
+                                <td>{{users.cin}}</td>
+                                <td>{{users.password}}</td>
+                                <td>
+                                        
+                                              <a class="btn btn-danger" href="{{ path('suppuser', {'id': users.id})}}"  role="button">
+                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                              </a>
+                                                 
+                                              <a class="btn btn-primary" href="{{ path('moduser', {'id': users.id})}}"  role="button" >
+                                                <i class="fa fa-cog" aria-hidden="true"></i>
+                                              </a>
+                                </td>
+                                
+                              </tr>
+       
+                        {% endfor %}
+                    </tbody>
+                      </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+    
+        {% endblock %}

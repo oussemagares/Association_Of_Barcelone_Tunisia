@@ -1,0 +1,28 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block body %}
+
+<div class="container">
+    {{ parent() }}
+
+  <div class="row justify-content-md-center" style="margin-top:51px;" >
+    <div class="col-md ">
+     <h1 style="    margin-top: -28px;
+     text-align: center;
+     margin-bottom: 34px;">Ajouter evenement </h1>
+          {{ form_start(form) }}
+          {{form_row(form.title,{'attr':{'placeholder':"Title of event.. "}})}}
+          {{form_row(form.date_debut,{'attr':{'placeholder':"debut:d/m/y"}})}}
+          {{form_row(form.date_fin,{'attr':{'placeholder':"fin:d/m/y "}})}}
+          {{form_row(form.content,{'attr':{'placeholder':"..... "}})}}
+          {{form_row(form.nbr_limite,{'attr':{'placeholder':"limit number of event.."}})}}
+          <div class="row justify-content-md-center">
+            <button type="submit" class="btn btn-success">Ajouter</button>
+             </div>
+          {{ form_end(form) }}
+
+    </div>
+  </div>
+</div>
+    
+        {% endblock %}

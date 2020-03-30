@@ -1,0 +1,264 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+{{ parent() }}
+<style>
+
+.cta-100 {
+  margin-top: 100px;
+  padding-left: 8%;
+  padding-top: 7%;
+}
+.col-md-4{
+    padding-bottom:20px;
+}
+
+.white {
+  color: #fff !important;
+}
+
+.bg-blue-ui {
+    border-radius: 10rem;
+    background-color: #f14052 !important;}
+figure img{width:300px;}
+
+#blogCarousel {
+  padding-bottom: 100px;
+}
+
+.blog .carousel-indicators {
+  left: 0;
+  top: -50px;
+  height: 50%;
+  width: 19px;
+    height: 1px;
+}
+
+
+/* The colour of the indicators */
+
+.blog .carousel-indicators li {
+  background: #708198;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+}
+
+.blog .carousel-indicators .active {
+  background: #0fc9af;
+}
+
+
+
+
+.item-carousel-blog-block {
+  outline: medium none;
+  padding: 15px;
+}
+
+.item-box-blog {
+  border: 1px solid #dadada;
+  text-align: center;
+  z-index: 4;
+  padding: 20px;
+}
+
+.item-box-blog-image {
+  position: relative;
+}
+
+.item-box-blog-image figure img {
+  width: 100%;
+  height: auto;
+}
+
+.item-box-blog-date {
+  position: absolute;
+  z-index: 5;
+  padding: 4px 20px;
+  top: -20px;
+  right: 8px;
+  background-color: #41cb52;
+}
+
+.item-box-blog-date span {
+  color: #fff;
+  display: block;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.item-box-blog-date span.mon {
+  font-size: 18px;
+}
+
+.item-box-blog-date span.day {
+  font-size: 16px;
+}
+
+.item-box-blog-body {
+  padding: 10px;
+}
+
+.item-heading-blog a h5 {
+  margin: 0;
+  line-height: 1;
+  text-decoration:none;
+  transition: color 0.3s;
+}
+
+.item-box-blog-heading a {
+    text-decoration: none;
+}
+
+.item-box-blog-data p {
+  font-size: 13px;
+}
+
+.item-box-blog-data p i {
+  font-size: 12px;
+}
+
+.item-box-blog-text {
+  max-height: 100px;
+  overflow: hidden;
+}
+
+.mt-10 {
+  float: left;
+  margin-top: -10px;
+  padding-top: 10px;
+}
+
+.btn.bg-blue-ui.white.read {
+  cursor: pointer;
+
+}
+
+.btn.bg-blue-ui.white.read:hover {
+  box-shadow: 0px 5px 15px inset #4d5f77;
+}
+.mt{
+  margin: 23px;
+}
+
+.searchbar{
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 60px;
+    background-color: #deb34b;;
+    border-radius: 30px;
+    padding: 10px;
+    }
+
+    .search_input{
+    color: white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    caret-color:transparent;
+    line-height: 40px;
+    transition: width 0.4s linear;
+    }
+
+    .searchbar:hover > .search_input{
+    padding: 0 10px;
+    width: 450px;
+    caret-color:#deb34b;;
+    transition: width 0.4s linear;
+    }
+
+    .searchbar:hover > .search_icon{
+    background: white;
+    color: #deb34b;;
+    }
+
+    .search_icon{
+    height: 40px;
+    width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color:white;
+    text-decoration:none;
+    }
+
+</style>
+
+          <div class="container-fluid" style="margin-top:150px;">
+            <div style="    margin-bottom: -48px;
+            margin-top: -36px;
+            /* margin: 35px; */
+            float: right;">
+                <div class="container h-100">
+                <div class="d-flex justify-content-center h-100">
+                        <img src="https://www.scuolesentiero.it/wp-content/uploads/2014/11/servizi2.png" alt="" width="110px" style="margin-right: 19px;
+                        margin-top: -37px;">
+                                 <form action="{{ path('recherche')}}" method="POST">
+                                    <div class="searchbar">
+                                      <input class="search_input" type="text" name="variable" placeholder="Cherchez avec nom d'accesoire">
+                                      <button class="search_icon" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                  
+                                      </div>
+                                  </form>
+                </div>
+              </div>
+            </div>
+            
+            <div class="row blog" style="    padding-top: 54px;
+            ">
+              <div class="col-md-12">
+                <div id="blogCarousel" class="carousel slide container-blog" data-ride="carousel">
+                  <!-- Carousel items -->
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <div class="row">
+                          {% for  EVN in event %}
+                        <div class="col-md-4" >
+                          <div class="item-box-blog">
+                            <div class="item-box-blog-image">
+                              <!--Date-->
+                              <div class="item-box-blog-date bg-blue-ui white"> <span class="mon">{{EVN.DateDebut  | date ('d/m/y') }}</span> </div>
+                              <!--Image-->
+                              {#<figure> <img alt="" src={{livres.Image}} style="    width: 140px;"> </figure>#}
+                            </div>
+                            <div class="item-box-blog-body">
+                              <!--Heading-->
+                              <div class="item-box-blog-heading">
+                                <a href="#" tabindex="0">
+                                  <h5>{{EVN.Title}}</h5>
+                                </a>
+                              </div>
+                                <div class="item-box-blog-heading">
+                                    <a href="#" tabindex="0">
+                                        <h5>{{EVN.Content}}</h5>
+                                    </a>
+                                </div>
+                              <!--Data-->
+                              {#<div class="item-box-blog-data" style="padding: px 15px;">#}
+                                {#<p><i class="fa fa-user-o " ></i> {{livres.auteur.nomAu}}</p>#}
+                              {#</div>#}
+                              <!--Text-->
+                              <div class="item-box-blog-text">
+                                <p>{{EVN.Title | slice(0,100)}}</p>
+                              </div>
+                              <div class="col-md-auto">
+                                <a href="{{ path('allevent', {'id': EVN.id})}}"tabindex="0" class="btn bg-blue-ui white read">lire plus </a>                              </div>
+
+                              <!--Read More Button-->
+                            </div>
+                          </div>
+                        </div>
+                        
+                        {% endfor %}
+                      </div>
+                      <!--.row-->
+                    </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+{% endblock %}

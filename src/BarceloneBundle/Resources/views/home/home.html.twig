@@ -1,0 +1,465 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+{{ parent() }}
+
+<style>
+
+.cta-100 {
+  margin-top: 100px;
+  padding-left: 8%;
+  padding-top: 7%;
+}
+.col-md-4{
+    padding-bottom:20px;
+}
+
+.white {
+  color: #fff !important;
+}
+
+.bg-blue-ui {
+    border-radius: 10rem;
+    background-color: #f14052 !important;}
+figure img{width:300px;}
+
+#blogCarousel {
+  padding-bottom: 100px;
+}
+
+.blog .carousel-indicators {
+  left: 0;
+  top: -50px;
+  height: 50%;
+  width: 19px;
+    height: 1px;
+}
+
+
+/* The colour of the indicators */
+
+.blog .carousel-indicators li {
+  background: #708198;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+}
+
+.blog .carousel-indicators .active {
+  background: #0fc9af;
+}
+
+
+
+
+.item-carousel-blog-block {
+  outline: medium none;
+  padding: 15px;
+}
+
+.item-box-blog {
+  border: 1px solid #dadada;
+  text-align: center;
+  z-index: 4;
+  padding: 20px;
+}
+
+.item-box-blog-image {
+  position: relative;
+}
+
+.item-box-blog-image figure img {
+  width: 100%;
+  height: auto;
+}
+
+.item-box-blog-date {
+  position: absolute;
+  z-index: 5;
+  padding: 4px 20px;
+  top: -20px;
+  right: 8px;
+  background-color: #41cb52;
+}
+
+.item-box-blog-date span {
+  color: #fff;
+  display: block;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.item-box-blog-date span.mon {
+  font-size: 18px;
+}
+
+.item-box-blog-date span.day {
+  font-size: 16px;
+}
+
+.item-box-blog-body {
+  padding: 10px;
+}
+
+.item-heading-blog a h5 {
+  margin: 0;
+  line-height: 1;
+  text-decoration:none;
+  transition: color 0.3s;
+}
+
+.item-box-blog-heading a {
+    text-decoration: none;
+}
+
+.item-box-blog-data p {
+  font-size: 13px;
+}
+
+.item-box-blog-data p i {
+  font-size: 12px;
+}
+
+.item-box-blog-text {
+  max-height: 100px;
+  overflow: hidden;
+}
+
+.mt-10 {
+  float: left;
+  margin-top: -10px;
+  padding-top: 10px;
+}
+
+.btn.bg-blue-ui.white.read {
+  cursor: pointer;
+
+}
+
+.btn.bg-blue-ui.white.read:hover {
+  box-shadow: 0px 5px 15px inset #4d5f77;
+}
+.mt{
+  margin: 23px;
+}
+.aboutus-section {
+      margin-left: 130px;
+
+    padding: 90px 0;
+}
+.aboutus-title {
+    font-size: 30px;
+    letter-spacing: 0;
+    line-height: 32px;
+    margin: 0 0 39px;
+    padding: 0 0 11px;
+    position: relative;
+    text-transform: uppercase;
+    color: #000;
+}
+.aboutus-title::after {
+    background: #deb34b  none repeat scroll 0 0;
+    bottom: 0;
+    content: "";
+    height: 2px;
+    left: 0;
+    position: absolute;
+    width: 54px;
+}
+.aboutus-text {
+    color: #606060;
+    font-size: 13px;
+    line-height: 22px;
+    margin: 0 0 35px;
+}
+
+a:hover, a:active {
+    color: #f14052;
+    text-decoration: none;
+    outline: 0;
+}
+.aboutus-more {
+    border: 1px solid #deb34b;
+    border-radius: 25px;
+    color: #deb34b;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0;
+    padding: 7px 20px;
+    text-transform: uppercase;
+}
+.feature .feature-box .iconset {
+    background: #fff none repeat scroll 0 0;
+    float: left;
+    position: relative;
+    width: 18%;
+}
+.feature .feature-box .iconset::after {
+    background: #deb34b  none repeat scroll 0 0;
+    content: "";
+    height: 150%;
+    left: 43%;
+    position: absolute;
+    top: 100%;
+    width: 1px;
+}
+
+.feature .feature-box .feature-content h4 {
+    color: #0f0f0f;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 22px;
+    margin: 0 0 5px;
+}
+
+
+.feature .feature-box .feature-content {
+    float: left;
+    padding-left: 28px;
+    width: 78%;
+}
+.feature .feature-box .feature-content h4 {
+    color: #0f0f0f;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 22px;
+    margin: 0 0 5px;
+}
+.feature .feature-box .feature-content p {
+    color: #606060;
+    font-size: 13px;
+    line-height: 22px;
+}
+.icon {
+    color : #f4b841;
+    padding:0px;
+    font-size:40px;
+    border: 1px solid #fdb801;
+    border-radius: 100px;
+    color: #fdb801;
+    font-size: 28px;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    width: 70px;
+}
+.typewriter h5{
+  color: #deb34b;
+  font-family: monospace;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid #deb34b; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 3.5s steps(30, end),
+    blink-caret .5s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 40% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  60% { border-color: transparent }
+}
+</style>
+ <div class="jumbotron" style="background-image: url({{asset('images/barca.jpg') }}); background-repeat:no-repeat;   height: 800px;
+; text-align: center ; center center fixed;    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover
+  "  >
+    <br>
+    <br>
+    <br>
+     <h1 class="display-3" style="    margin-top: -19px;
+    margin-top: -15;
+    color: #ffffff;">FC.BARCELONE </h1>
+    <div class="typewriter"  style="      color: #ffffff;">  <h5>Web site of barcelone's supporters</h5></div>
+    <p class="lead">
+      {#<a class="btn btn-primary btn-lg animated  heartBeat delay-5s " href="#" role="button " style="background-color: #f14052;#}
+    {#border-color: #f14052;     border-radius: 10rem; font-size: initial;     margin-top: 18px;#}
+{#">En savoir plus  <i class="fa fa-spinner fa-spin  fa-lg fa-fw"></i></a></p>#}
+</div>
+   <div>
+    <div class="container-fluid" style="   background-color: #af1d4c;
+    height: 61px;
+    margin-top: -32px;
+    margin-bottom: 32px">
+      <p style="text-align: center;
+      padding: 13px;
+     
+      font-size: 19px;
+      color: white;"> Les Accesoires  <i class="fa fa-book" aria-hidden="true"></i>
+ </p>
+    </div>
+      <div class="container-fluid ">
+      
+          <div class="container-fluid">
+            <div class="row blog">
+              <div class="col-md-12">
+                <div id="blogCarousel" class="carousel slide container-blog" data-ride="carousel">
+                  <!-- Carousel items -->
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <div class="row">
+                          {% for  livres in livre | slice(0, 3) %}
+                        <div class="col-md-4" >
+                          <div class="item-box-blog">
+                            <div class="item-box-blog-image">
+                              <!--Date-->
+                                {#<div class="item-box-blog-date bg-blue-ui white"> <span class="mon">{{livres.dateCreation  | date ('d/m/y') }}</span> </div>#}
+                              <!--Image-->
+                              <figure> <img alt="" src="{{asset('images/')~livres.Image}}" style="    width: 140px;"> </figure>
+                            </div>
+                            <div class="item-box-blog-body">
+                              <!--Heading-->
+                              <div class="item-box-blog-heading">
+                                <a href="#" tabindex="0">
+                                  <h5>{{livres.nomAccesoire}}</h5>
+                                </a>
+                              </div>
+                              <!--Data-->
+                              {#<div class="item-box-blog-data" style="padding: px 15px;">#}
+                                {#<p><i class="fa fa-user-o " ></i> {{livres.auteur.nomAu}}</p>#}
+                              {#</div>#}
+                              <!--Text-->
+                              <div class="item-box-blog-text">
+                                <p>{{livres.price | slice(0,100)}} dt</p>
+                              </div>
+                              <div class="col-md-auto">
+                                <a href="{{ path('detaile', {'id': livres.id})}}" tabindex="0" class="btn bg-blue-ui white read">acheter</a>                              </div>
+
+                              <!--Read More Button-->
+                            </div>
+                          </div>
+                        </div>
+                        
+                        {% endfor %}
+                      </div>
+                      <!--.row-->
+                    </div>
+                    <!--.item-->
+                    <div class="carousel-item ">
+                      <div class="row">
+                          {% for  livres in livre | slice(3, 6) %}
+                        <div class="col-md-4" >
+                          <div class="item-box-blog">
+                            <div class="item-box-blog-image">
+                              <!--Date-->
+                              {#<div class="item-box-blog-date bg-blue-ui white"> <span class="mon">{{livres.dateCreation  | date ('d/m/y') }}</span> </div>#}
+                              <!--Image-->
+                              <figure> <img alt="" src="{{ asset('images/'~livres.Image) }}" style="width: 140px;" > </figure>
+                            </div>
+                            <div class="item-box-blog-body">
+                              <!--Heading-->
+                              <div class="item-box-blog-heading">
+                                <a href="#" tabindex="0">
+                                  <h5>{{livres.nomAccesoire}}</h5>
+                                </a>
+                              </div>
+                              <!--Data-->
+                              {#<div class="item-box-blog-data" style="padding: px 15px;">#}
+                                {#<p><i class="fa fa-user-o"></i> {{livres.auteur.nomAu}}</p>#}
+                              {#</div>#}
+                              <!--Text-->
+                              <div class="item-box-blog-text">
+                                <p>{{livres.price | slice(0, 100)}} dt</p>
+                              </div>
+                              <div class="col-md-auto">
+                                <a  href="{{ path('detaile', {'id': livres.id})}}tabindex="0" class="btn bg-blue-ui white read">acheter</a>                              </div>
+
+                              <!--Read More Button-->
+                            </div>
+                          </div>
+                        </div>
+                        
+                        {% endfor %}
+                       
+                     
+                      </div>
+                      <!--.row-->
+                    </div>
+                    <!--.item-->
+                  </div>
+                  <!--.carousel-inner-->
+                </div>
+                <!--.Carousel-->
+              </div>
+            </div>
+          </div>
+          <div class="container">
+  <div class="row justify-content-md-center">
+    
+    <div class="col-md-auto">
+<a class="btn btn-primary my" href="{{ path('allevent')}}" role="button" style="border-radius: 10rem;
+    background-color: #f14052 !important;     border-color: #f14052  ;">Voir tous les evenements</a>
+    </div>
+   
+  </div>
+
+  
+  
+        </div>
+        {#<div class="aboutus-section" id="about"> #}
+        {#<div class="container">#}
+            {#<div class="row">#}
+                {#<div class="col-md-3 col-sm-6 col-xs-12">#}
+                    {#<div class="aboutus">#}
+                        {#<h2 class="aboutus-title">A props de nous </h2>#}
+                        {#<p class="aboutus-text">Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in.</p>#}
+                        {#<p class="aboutus-text">This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem</p>#}
+                        {#<a class="aboutus-more" href="#">read more</a>#}
+                    {#</div>#}
+                {#</div>#}
+                {#<div class="col-md-3 col-sm-6 col-xs-12">#}
+                    {#<div class="aboutus-banner">#}
+                        {#<img src="https://imgs.clipartwiki.com/clipimg/small/175-1750224_education-study-student-book-learn-knowledge-male-teacher.png" alt="">#}
+                    {#</div>#}
+                {#</div>#}
+                {#<div class="col-md-5 col-sm-6 col-xs-12" style="    margin-left: 68px;#}
+{#">#}
+                    {#<div class="feature">#}
+                        {#<div class="feature-box">#}
+                            {#<div class="clearfix">#}
+                                {#<div class="iconset">#}
+{#<i class="fa fa-grav fa-5x"  style="    color: #deb34b;" ></i>                                </div>#}
+                                {#<div class="feature-content">#}
+                                    {#<h4>Work with heart</h4>#}
+                                    {#<p>Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in.</p>#}
+                                {#</div>#}
+                            {#</div>#}
+                        {#</div>#}
+                        {#<div class="feature-box">#}
+                            {#<div class="clearfix">#}
+                                {#<div class="iconset">#}
+{#<i class="fa fa-bandcamp fa-5x" style="    color: #deb34b;"></i>                                  </div>#}
+                                {#<div class="feature-content">#}
+                                    {#<h4>Reliable services</h4>#}
+                                    {#<p>Donec vitae sapien ut libero venenatis faucibu. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt</p>#}
+                                {#</div>#}
+                            {#</div>#}
+                        {#</div>#}
+                        {#<div class="feature-box">#}
+                            {#<div class="clearfix">#}
+                                {#<div class="iconset">#}
+{#<i class="fa fa-user-circle-o fa-5x"  style="    color: #deb34b;"></i>                                  </div>#}
+                                {#<div class="feature-content">#}
+                                    {#<h4>Great support</h4>#}
+                                    {#<p>Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in.</p>#}
+                                {#</div>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}
+   {#</div>#}
+  
+{%endblock%}

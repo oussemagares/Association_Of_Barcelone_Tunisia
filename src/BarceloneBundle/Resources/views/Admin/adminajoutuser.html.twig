@@ -1,0 +1,28 @@
+{% extends 'base.admin.html.twig' %}
+
+{% block body %}
+
+<div class="container"  ">
+    {{ parent() }}
+
+  <div class="row justify-content-md-center" style="margin-top:51px;" >
+    <div class="col-md ">
+     <h1 style="    margin-top: -28px;
+     text-align: center;
+     margin-bottom: 34px;">Ajouter abonné </h1>
+          {{ form_start(form) }}
+          {{form_row(form.email,{'attr':{'placeholder':"Email.... "}})}}
+          {{form_row(form.username,{'attr':{'placeholder':"name...."}})}}
+          {{form_row(form.password,{'attr':{'placeholder':"mdp... "}})}}
+          {{form_row(form.cin,{'attr':{'placeholder':"cin..."}})}}
+          <div class="row justify-content-md-center">
+            <button type="submit" class="btn btn-success">
+Ajouter                         </button>
+             </div>
+             {{ form_end(form) }}
+
+          </div>
+          </div>
+        </div>
+    
+        {% endblock %}

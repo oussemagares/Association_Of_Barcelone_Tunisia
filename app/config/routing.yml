@@ -1,0 +1,42 @@
+#barcelone_liste_commande:
+#    resource: "@BarceloneBundle/Controller/listeCommandeController.php"
+#    type:     annotation
+#
+#barcelone_commande:
+#    resource: "@BarceloneBundle/Controller/commandeController.php"
+#    type:     annotation
+#
+#barcelone_events:
+#    resource: "@BarceloneBundle/Controller/eventsController.php"
+#    type:     annotation
+#
+#barcelone_actualite:
+#    resource: "@BarceloneBundle/Controller/actualiteController.php"
+#    type:     annotation
+#
+#barcelone_accesoire:
+#    resource: "@BarceloneBundle/Controller/AccesoireController.php"
+#    type:     annotation
+#
+#barcelone_actualite:
+#    resource: "@BarceloneBundle/Controller/actualiteController.php"
+#    type:     annotation
+#
+#barcelone_accesoire:
+#    resource: "@BarceloneBundle/Controller/accesoireController.php"
+#    type:     annotation
+
+
+biblio:
+    resource: '@BiblioBundle/Controller/'
+    type: annotation
+
+
+login:
+    resource: '@BiblioBundle/Controller'
+    type: annotation
+
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

@@ -1,0 +1,61 @@
+{% extends 'base.admin2.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <h1 class="h3 mb-2 text-gray-800">Tables des Accesoires </h1>
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Tables</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0"  style="font-size: 12px;">
+                        <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>quantite</th>
+                            {#<th>Date de post</th>#}
+                            {#<th>image </th>#}
+                            {#<th>Disponbilité </th>#}
+                            <th scope="col">Actions</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for  acces in listecom %}
+                            <tr>
+
+                                <td>{{acces.id}}</td>
+                                <td>{{acces.quantite}}</td>
+                                {#<td>{{acces.dateCreation | date ('d/m/y') }}</td>#}
+                                {#<td><img src=aaset{{acces.image}} style="    width: 40px;"> </td>#}
+                                {#<img src="" alt="">#}
+                                {#<td>{{acces.disponible}}</td>#}
+                                {#<td>#}
+
+                                    {#<a class="btn btn-danger" href="{{ path('suppacces', {'id': acces.id})}}"  role="button" >#}
+                                        {#<i class="fa fa-trash" aria-hidden="true"></i>#}
+                                    {#</a>#}
+
+                                    {#<a class="btn btn-primary" href="{{ path('modacces', {'id': acces.id})}}"  role="button" >#}
+                                        {#<i class="fa fa-cog" aria-hidden="true"></i>#}
+                                    {#</a>#}
+                                {#</td>#}
+
+                            </tr>
+
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

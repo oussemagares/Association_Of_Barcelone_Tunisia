@@ -1,0 +1,54 @@
+{% extends 'base.admin2.html.twig' %}
+
+{% block body %}
+<style>
+#form_auteur{
+  width: 200px;
+}
+#form_genre{
+  width: 200px;
+
+}
+</style>
+<div class="container"  >
+    {{ parent() }}
+
+  <div class="row justify-content-md-center" style="margin-top:51px;" >
+     
+    
+    <div class="col-6 ">
+        {%  for flash_message in  app.session.flashbag.get('notice') %}
+        <div class="alert alert-danger" role="alert" style="width: 172px;
+        float: right;
+        margin-right: -139px;">
+              {{ flash_message }}
+          </div>
+      {% endfor %}
+
+      {%  for flash_message in  app.session.flashbag.get('ajout') %}
+      <div class="alert alert-primary" role="alert" style="width: 172px;
+      float: right;
+      margin-right: -139px;">
+            {{ flash_message }}
+        </div>
+    {% endfor %}
+
+
+     <h1 style="    margin-top: -28px;
+     text-align: center;
+     margin-bottom: 34px;">Ajouter Un Accesoire </h1>
+          {{ form_start(form) }}
+          {{form_row(form.nomAccesoire,{'attr':{'placeholder':"Nom d'accesoire .. "}})}}
+          {{form_row(form.price,{'attr':{'placeholder':"prix(dt).."}})}}
+          {{form_row(form.dateCreation)}}
+          {{form_row(form.image)}}
+        
+          <div class="row justify-content-md-center">
+            <button type="submit" class="btn btn-success" style="margin: 18px;">
+                Ajouter
+            </button>
+          </div>
+             {{ form_end(form) }}
+
+    
+        {% endblock %}

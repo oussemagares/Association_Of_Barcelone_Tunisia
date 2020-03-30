@@ -1,0 +1,245 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+{{ parent() }}
+<style>
+
+img {
+  max-width: 100%; }
+
+.preview {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+  @media screen and (max-width: 996px) {
+    .preview {
+      margin-bottom: 20px; } }
+
+.preview-pic {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1; }
+
+.preview-thumbnail.nav-tabs {
+  border: none;
+  margin-top: 15px; }
+  .preview-thumbnail.nav-tabs li {
+    width: 18%;
+    margin-right: 2.5%; }
+    .preview-thumbnail.nav-tabs li img {
+      max-width: 100%;
+      display: block; }
+    .preview-thumbnail.nav-tabs li a {
+      padding: 0;
+      margin: 0; }
+    .preview-thumbnail.nav-tabs li:last-of-type {
+      margin-right: 0; }
+
+.tab-content {
+  overflow: hidden; }
+  .tab-content img {
+        width: 349px;
+    height: 457px;
+    -webkit-animation-name: opacity;
+            animation-name: opacity;
+    -webkit-animation-duration: .3s;
+            animation-duration: .3s; }
+
+.card {
+  margin-top: 50px;
+  background: #fff;
+  padding: 3em;
+  line-height: 1.5em; }
+
+@media screen and (min-width: 997px) {
+  .wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; } }
+
+.details {
+      margin-left: -99px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+
+.colors {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1; }
+
+.product-title, .price, .sizes, .colors {
+  text-transform: UPPERCASE;
+  font-weight: bold; }
+
+.checked, .price span {
+  color: #deb34b;; }
+
+.product-title, .rating, .product-description, .price, .vote, .sizes {
+  margin-bottom: 15px; }
+
+.product-title {
+  margin-top: 0; }
+
+.size {
+  margin-right: 10px; }
+  .size:first-of-type {
+    margin-left: 40px; }
+
+.color {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  height: 2em;
+  width: 2em;
+  border-radius: 2px; }
+  .color:first-of-type {
+    margin-left: 20px; }
+
+.add-to-cart, .like {
+  background: #ff9f1a;
+  padding: 1.2em 1.5em;
+  border: none;
+  text-transform: UPPERCASE;
+  font-weight: bold;
+  color: #fff;
+  -webkit-transition: background .3s ease;
+          transition: background .3s ease; }
+  .add-to-cart:hover, .like:hover {
+    background: #b36800;
+    color: #fff; }
+
+.not-available {
+  text-align: center;
+  line-height: 2em; }
+  .not-available:before {
+    font-family: fontawesome;
+    content: "\f00d";
+    color: #fff; }
+
+.orange {
+  background: #ff9f1a; }
+
+.green {
+  background: #85ad00; }
+
+.blue {
+  background: #0076ad; }
+
+.tooltip-inner {
+  padding: 1.3em; }
+
+@-webkit-keyframes opacity {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(3);
+            transform: scale(3); }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(3);
+            transform: scale(3); }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+.btn.bg-blue-ui.white.read {
+  cursor: pointer;
+
+}
+
+.btn.bg-blue-ui.white.read:hover {
+  box-shadow: 0px 5px 15px inset #4d5f77;
+}
+</style>
+<div class="container" style="margin-top:100px;">
+ <a href="{{path('biblio')}}"> <i class="fa fa-reply-all fa-4x animated pulse  infinite " aria-hidden="true" style="float: right;    color: #deb34b;
+  margin-right: -99px;"></i></a>
+
+   {%  for flash_message in  app.session.flashbag.get('ajout') %}
+      <div class="alert alert-primary" role="alert" style="position: relative;
+      /* margin-top: 252px; */
+      top: 15px;
+      right: 158px;
+      float: right;
+      z-index: 99;
+      width: 138px ;color: #ffffff;
+    background-color: #deb34b;
+    border-color: #deb34b;" >
+            {{ flash_message }} <i class="fa fa-check-circle-o animated flip  infinite " aria-hidden="true"></i>
+        </div>
+    {% endfor %}
+
+		<div class="card shadow p-3 mb-5 bg-white rounded">
+			<div class="container-fliud">
+				<div class="wrapper row">
+					<div class="preview col-md-6">
+						
+						<div class="preview-pic tab-content">
+						  <div class="tab-pane active" id="pic-1"><img src="{{accesoire.image}}" /></div>
+		
+						</div>
+					
+						
+					</div>
+					<div class="details col-md-6">
+						<h3 class="product-title">{{accesoire.nomAccesoire}}</h3>
+						<p>Description  <i class="fa fa-info" aria-hidden="true"></i>
+</p>
+						<p class="product-description">{{accesoire.price}}</p>
+						<h4 class="price">Disponiblité:  {%  if accesoire.disponible==1 %} <span>Disponible <i class="fa fa-smile-o" aria-hidden="true"></i>
+</span>{% else %}<span>Non Disponible <i class="fa fa-frown-o" aria-hidden="true"></i>
+</span> {% endif %} </h4>
+						<p class="vote"><strong style="color: #deb34b;">{{com | length }}</strong> utlisateur ont emprenté ce livre</p>
+						{#<h5 class="sizes">Auteur <i class="fa fa-user-circle" aria-hidden="true"></i>#}
+  {#:#}
+							{#<span class="size" data-toggle="tooltip" title="small" style="color: #f14052;">{{livre.auteur.nomAu}}</span>#}
+						{#</h5>#}
+						<h5 class="colors">Date de creation <i class="fa fa-calendar" aria-hidden="true"></i>
+ :
+							<span style="color: #f14052;"> {{accesoire.dateCreation  | date ('d/m/y') }}</span>
+		
+						</h5>
+            {#<h5 class="colors">Genre <i class="fa fa-american-sign-language-interpreting" aria-hidden="true"></i>#}
+ {#:#}
+							{#<span style="color: #f14052;"> {{livre.genre.nomG }}</span>#}
+						{#</h5>#}
+						<div class="action">
+             {% if accesoire.disponible ==1  and app.user %}
+
+     <a href="{{ path('emprenter', {'id': accesoire.id})}}"   class="btn btn-primary" tabindex="0" style="    background-color: #f14052;
+    border-color: #f14052;
+    border-radius: 10rem;
+    font-size: initial;" >Emprenter </a>      
+              {% else %}
+       <a href="{{ path('emprenter', {'id': accesoire.id})}}"   class="btn btn-primary disabled" role="button" aria-disabled="true"  tabindex="0" style="    background-color: #f14052;
+    border-color: #f14052;
+    border-radius: 10rem;
+    font-size: initial;" disabled >Emprenter </a>  
+            {% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
