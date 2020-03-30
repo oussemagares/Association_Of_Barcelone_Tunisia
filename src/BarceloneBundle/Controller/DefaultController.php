@@ -1,6 +1,6 @@
 <?php
 
-namespace BiblioBundle\Controller;
+namespace BarceloneBundle\Controller;
 
 use Assetic\Filter\DartFilter;
 use BiblioBundle\Entity\Events;
@@ -9,10 +9,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use BiblioBundle\Entity\Accesoire;
-use BiblioBundle\Entity\User;
-use BiblioBundle\Entity\Commande;
-use BiblioBundle\Entity\Notification;
+use BarceloneBundle\Entity\Accesoire;
+use BarceloneBundle\Entity\User;
+use BarceloneBundle\Entity\Commande;
+use BarceloneBundle\Entity\Notification;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints\Date;
