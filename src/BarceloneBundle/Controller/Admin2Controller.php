@@ -9,12 +9,12 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
-use BiblioBundle\Entity\User;
-use BiblioBundle\Entity\Accesoire;
-use BiblioBundle\Entity\Events;
-use BiblioBundle\Entity\ListeCommande;
-use BiblioBundle\Entity\Commande;
-use BiblioBundle\Entity\Notification;
+use BarceloneBundle\Entity\User;
+use BarceloneBundle\Entity\Accesoire;
+use BarceloneBundle\Entity\Events;
+use BarceloneBundle\Entity\ListeCommande;
+use BarceloneBundle\Entity\Commande;
+use BarceloneBundle\Entity\Notification;
 
 class Admin2Controller extends Controller
 {
